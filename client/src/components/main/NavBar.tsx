@@ -74,15 +74,7 @@ export default function NavBar() {
       >
         <div className="flex justify-between lg:px-0 lg:justify-around items-center  ">
           <div className="flex justify-center items-center md:gap-2 lg:gap-8">
-            {/* <Image
-              src={"https://bock.co.in/images/Bockmain.svg"}
-              width={80}
-              height={40}
-              alt="BockLogo"
-              className="object-cover object-center dark:filter dark:invert"
-            /> */}
             DigiMemory
-            {/* <MemoryVaultLogo className="w-[40px] h-[40px] "  /> */}
             <ul className="hidden lg:flex justify-center items-center font-medium text-[#09090bcc] dark:text-[#fafafacc]">
               <li
                 className={cn(
