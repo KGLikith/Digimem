@@ -35,7 +35,6 @@ export default function UploadButton({ userId }: Props) {
               console.log(result.info);
               await addResources([result.info as CloudinaryResource]);
               toast({
-                variant: "success",
                 description: "Image Uploaded Successfully",
                 duration: 2000,
               });

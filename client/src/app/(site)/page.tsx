@@ -7,8 +7,6 @@ export default function Home() {
       <div>
         <Hero />
         <GridSection />
-        <div className="h-screen"></div>
-        <div className="h-screen"></div>
       </div>
     </>
   );

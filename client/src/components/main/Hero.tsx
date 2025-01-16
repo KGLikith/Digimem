@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-import {  PageHeaderHeading } from "../ui/PageHeader";
+import { PageHeaderHeading } from "../ui/PageHeader";
 
 export default function Hero() {
   return (
@@ -17,7 +17,9 @@ export default function Hero() {
                   Preserve Your Memories,
               </span> */}
               <br />
-              <span className=" dark:text-gray-200 text-gray-800">Share Your Story</span>
+              <span className=" dark:text-gray-200 text-gray-800">
+                Share Your Story
+              </span>
             </PageHeaderHeading>
             {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold">
               <PageHeaderHeading className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">

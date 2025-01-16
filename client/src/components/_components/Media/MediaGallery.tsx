@@ -44,6 +44,7 @@ import { useCurrentUser } from "@/hooks/user";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { addToAlbumMutation } from "@/graphql/mutation/media";
+import UploadImage from "@/components/cloudinary/upload/upload-image";
 
 export interface CloudinaryResource {
   asset_id?: string;
@@ -90,6 +91,7 @@ const MediaGallery = ({
   const [uiloading, setuiloading] = useState(false);
   const [albumName, setalbumName] = useState<string>("");
   const [ablumDialog, setablumDialog] = useState(false);
+  // const [openUpload, setOpenUpload] = useState(false);
 
   const [user, setUser] = useState<User>();
   const { user: currentUser } = useCurrentUser();
@@ -165,7 +167,6 @@ const MediaGallery = ({
     setCreation(undefined);
     setLoading(false);
     toast({
-      variant: "success",
       title: "Success",
       description: "It has been saved successfully",
       duration: 2000,
@@ -188,16 +189,18 @@ const MediaGallery = ({
     });
     removeResources(selected);
     setDeletion(undefined);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     setSelected([]);
     toast({
-      variant: "success",
       description: "Images deleted successfully",
       duration: 2000,
     });
-    await new Promise((resolve) => setTimeout(resolve, 3000));
     await apolloClient.resetStore();
     await queryclient.invalidateQueries({
       queryKey: ["AllMedia"],
+    });
+    await queryclient.invalidateQueries({
+      queryKey: ["AlbumMedia"],
     });
     await queryclient.invalidateQueries({
       queryKey: ["MediaByTags", ["creations"]],
@@ -480,7 +483,9 @@ const MediaGallery = ({
                   <h1>{album}</h1>
                 )}
                 {(type === "uploads" || type === "media") && (
-                  <UploadButton userId={user?.id as string}></UploadButton>
+                  <>
+                    <UploadButton userId={user?.id as string}></UploadButton>
+                  </>
                 )}
               </div>
             </>
@@ -502,7 +507,6 @@ const MediaGallery = ({
                 <div key={index} className="flex flex-col gap-1">
                   {column?.map((resource: Media) => {
                     const isChecked = selected.includes(resource.public_id);
-
                     function handleOnSelectResource(checked: boolean) {
                       setSelected((prev) => {
                         if (checked) {

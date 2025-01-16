@@ -209,7 +209,6 @@ const MediaViewer = ({ resource }: { resource: CloudinaryResource }) => {
     setLoading(false);
     closeMenus();
     toast({
-      variant: "success",
       title: "Success",
       description: "Image has been saved successfully",
       duration: 2000,
@@ -238,7 +237,6 @@ const MediaViewer = ({ resource }: { resource: CloudinaryResource }) => {
     });
 
     toast({
-      variant: "success",
       description: "Image deleted successfully",
       duration: 2000,
     });
@@ -270,7 +268,6 @@ const MediaViewer = ({ resource }: { resource: CloudinaryResource }) => {
     router.push(`/image/${results.asset_id}`);
     closeMenus();
     toast({
-      variant: "success",
       title: "Success",
       description: "Image has been saved successfully",
       duration: 2000,
