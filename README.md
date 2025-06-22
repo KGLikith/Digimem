@@ -1,5 +1,7 @@
 # 📸 DigiMem — Your Digital Memory Vault
 
+> ⚠️ This project is currently under development.
+
 DigiMem is a powerful web-based application for storing, managing, organizing, and downloading digital photos — built for simplicity, speed, and security.
 
 This full-stack app uses **Next.js**, **Apollo GraphQL**, **Clerk** for authentication, and **Cloudinary** for optimized media storage. Whether you're keeping travel memories, event albums, or personal archives, DigiMem helps you keep it all safe, sorted, and accessible.
